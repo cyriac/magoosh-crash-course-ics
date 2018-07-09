@@ -18,10 +18,10 @@ class GenerateEvents(object):
             self.start_date = datetime.today()
         else:
             self.start_date = parse(start)
-        self.get_data()
-        self.generate_ics()
+        self._get_data()
+        self._generate_ics()
 
-    def get_data(self):
+    def _get_data(self):
         self.data = None
         url = 'https://magoosh.com/gre/2017/how-to-study-gre-one-month/'
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -48,7 +48,7 @@ class GenerateEvents(object):
         else:
             print("Couldn't fetch data")
 
-    def generate_ics(self):
+    def _generate_ics(self):
         data = self.data
         if data != None:
             c = Calendar()
